@@ -30,13 +30,80 @@
   gap: 2rem;
   align-items: start;
 }
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .kolom {
-    grid-template-columns: 1fr 320px;
+    grid-template-columns: 180px 1fr 300px;
   }
-  .form {
+  .form,
+  .sidebar {
     position: sticky;
     top: 1.5rem;
+  }
+  .sidebar nav {
+    flex-direction: column;
+  }
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.sidebar h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tinta-pudar);
+  margin: 0.5rem 0 0.25rem;
+}
+.sidebar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.sidebar-item {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
+  border-left: 4px solid transparent;
+  color: var(--tinta);
+  cursor: pointer;
+}
+.sidebar-item:hover {
+  background: #e8eae3;
+}
+.sidebar-item.aktif {
+  border-left-color: var(--kuning);
+  background: #ebede6;
+  font-weight: 600;
+}
+
+/* ===== Tampilan saat dicetak ===== */
+@page {
+  margin: 0;
+}
+
+@media print {
+  .sidebar,
+  .form,
+  .ringkasan,
+  .tombol-hapus {
+    display: none !important;
+  }
+  .kolom {
+    display: block !important;
+  }
+  .halaman {
+    padding: 1.5cm; /* pengganti margin halaman */
+  }
+  .header {
+    background: none;
+    color: var(--tinta);
+    border-bottom: 2px solid var(--tinta);
+  }
+  .header p {
+    color: var(--tinta);
   }
 }
 

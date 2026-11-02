@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import RingkasanMenu from "./components/RingkasanMenu";
 import FormTambahMenu from "./components/FormTambahMenu";
 import DaftarMenu from "./components/DaftarMenu";
+import Sidebar from "./components/Sidebar";
 import "./App.css";
 
 // data awal, nanti pada Pekan 11 diganti dengan data dari backend/API
@@ -18,6 +19,13 @@ const menuAwal = [
 function App() {
   // state utama: array daftar menu
   const [daftarMenu, setDaftarMenu] = useState(menuAwal);
+  const [kategoriAktif, setKategoriAktif] = useState("Semua");
+
+  // menu yang ditampilkan mengikuti kategori yang dipilih di sidebar
+  const menuTampil =
+    kategoriAktif === "Semua"
+      ? daftarMenu
+      : daftarMenu.filter((menu) => menu.kategori === kategoriAktif);
 
   function tambahMenu(menuBaru) {
     setDaftarMenu((lama) => [...lama, { id: Date.now(), ...menuBaru }]);
@@ -25,6 +33,10 @@ function App() {
 
   function hapusMenu(id) {
     setDaftarMenu((lama) => lama.filter((menu) => menu.id !== id));
+  }
+
+  function cetakMenu() {
+    window.print();
   }
 
   return (
@@ -36,8 +48,13 @@ function App() {
       <main className="isi">
         <RingkasanMenu daftarMenu={daftarMenu} />
         <div className="kolom">
+          <Sidebar
+            kategoriAktif={kategoriAktif}
+            onPilihKategori={setKategoriAktif}
+            onCetak={cetakMenu}
+          />
           <section aria-label="Daftar menu">
-            <DaftarMenu daftarMenu={daftarMenu} onHapus={hapusMenu} />
+            <DaftarMenu daftarMenu={menuTampil} onHapus={hapusMenu} />
           </section>
           <FormTambahMenu onTambah={tambahMenu} />
         </div>
