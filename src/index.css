@@ -1,0 +1,40 @@
+:root {
+  --kertas: #f5f6f2;
+  --putih: #ffffff;
+  --tinta: #16213e;
+  --tinta-pudar: #5a6178;
+  --kuning: #f2b31c;
+  --merah: #b8322a;
+  --hijau: #2e6b4f;
+  --garis: #c9cdc4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--kuning);
+  outline-offset: 2px;
+}

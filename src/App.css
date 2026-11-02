@@ -1,0 +1,175 @@
+/* ===== Header: papan enamel biru dengan garis kuning ===== */
+.header {
+  background: var(--tinta);
+  color: var(--putih);
+  padding: 2.5rem 1.5rem 2rem;
+  border-bottom: 8px solid var(--kuning);
+}
+.header h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header p {
+  max-width: 1000px;
+  margin: 0.5rem auto 0;
+  color: #cfd5e6;
+}
+
+/* ===== Isi halaman ===== */
+.isi {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+.kolom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 800px) {
+  .kolom {
+    grid-template-columns: 1fr 320px;
+  }
+  .form {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+/* ===== Ringkasan ===== */
+.ringkasan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--garis);
+}
+.ringkasan > div {
+  display: flex;
+  flex-direction: column;
+}
+.ringkasan-angka {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+.ringkasan-label {
+  color: var(--tinta-pudar);
+  font-size: 0.9rem;
+}
+
+/* ===== Daftar & kartu menu (gaya papan menu warung) ===== */
+.daftar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kartu {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--garis);
+}
+.kartu:first-child {
+  padding-top: 0;
+}
+.kartu-baris {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.kartu-baris h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.kartu-titik {
+  flex: 1;
+  border-bottom: 2px dotted var(--tinta-pudar);
+  transform: translateY(-4px);
+  min-width: 1rem;
+}
+.kartu-harga {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.kartu-deskripsi {
+  margin: 0.15rem 0 0.5rem;
+  color: var(--tinta-pudar);
+  max-width: 55ch;
+}
+.kartu-bawah {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kartu-kategori {
+  font-size: 0.85rem;
+  color: var(--hijau);
+  font-weight: 600;
+}
+.tombol-hapus {
+  background: none;
+  border: none;
+  color: var(--merah);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  text-decoration: underline;
+}
+.tombol-hapus:hover {
+  background: #f6e3e1;
+}
+
+/* ===== Kondisi kosong ===== */
+.kosong {
+  padding: 2rem 1.25rem;
+  border: 2px dashed var(--garis);
+  color: var(--tinta-pudar);
+  margin: 0;
+}
+
+/* ===== Form ===== */
+.form {
+  background: var(--putih);
+  border: 2px solid var(--tinta);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.form h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+.form input,
+.form select {
+  margin-top: 0.25rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--tinta-pudar);
+  background: var(--putih);
+  color: var(--tinta);
+}
+.form-error {
+  margin: 0.75rem 0 0;
+  color: var(--merah);
+  font-size: 0.9rem;
+}
+.form button {
+  margin-top: 1.25rem;
+  padding: 0.7rem;
+  background: var(--kuning);
+  color: var(--tinta);
+  border: 2px solid var(--tinta);
+  font-weight: 600;
+  cursor: pointer;
+}
+.form button:hover {
+  background: #ffc83d;
+}
